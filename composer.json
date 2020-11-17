@@ -1,0 +1,35 @@
+{
+    "name": "krutyosila/wallet",
+    "type": "package",
+    "description": "Laravel Minimal Wallet Plugin",
+    "keywords": [
+        "wallet",
+        "laravel",
+        "plugin",
+        "crypto"
+    ],
+    "homepage": "https://github.com/krutyosila/wallet",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Krutyosila",
+            "email": "info@soyturk.com"
+        }
+    ],
+    "require": {
+        "php": "^7.3|^8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Krutyosila\\Wallet\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Krutyosila\\Wallet\\WalletServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev"
+}
