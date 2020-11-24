@@ -2,6 +2,8 @@
 
 namespace Krutyosila\Wallet\Types;
 
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 use Krutyosila\Wallet\Models\Wallet;
 
 class WalletTransactionType
@@ -12,6 +14,7 @@ class WalletTransactionType
     public $amount;
     public $meta;
     public $confirmed;
+    public $txn;
 
     /**
      * @param Wallet $wallet
@@ -109,6 +112,21 @@ class WalletTransactionType
         $this->confirmed = $confirmed;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getTxn()
+    {
+        return $this->txn;
+    }
+
+    /**
+     * @param mixed $txn
+     */
+    public function setTxn($txn)
+    {
+        $this->txn = Str::random(32);
+    }
     /**
      * @return array
      */
