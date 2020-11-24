@@ -25,7 +25,7 @@ class WalletService
             $wallet->balance = $wallet->balance + $types->getAmount();
             $wallet->save();
         }
-        $types->setTxn($wallet->id);
+        $types->setTxn();
         return $wallet->transactions()->create($types->getAll());
     }
 

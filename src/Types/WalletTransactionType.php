@@ -121,11 +121,11 @@ class WalletTransactionType
     }
 
     /**
-     * @param mixed $walletId
+     * @param mixed
      */
-    public function setTxn($walletId)
+    public function setTxn()
     {
-        $this->txn = Hash::make($walletId.microtime());
+        $this->txn = Str::random(32);
     }
     /**
      * @return array
