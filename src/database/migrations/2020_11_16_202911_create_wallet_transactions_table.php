@@ -16,6 +16,7 @@ class CreateWalletTransactionsTable extends Migration
         Schema::create('wallet_transactions', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('wallet_id');
+            $table->string('txn')->unique();
             $table->enum('type', ['deposit', 'withdraw'])->nullable();
             $table->string('intermediary')->nullable();
             $table->decimal('amount', 8,2)->default(0);
