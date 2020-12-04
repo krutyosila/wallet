@@ -2,6 +2,7 @@
 
 namespace Krutyosila\Wallet\Models;
 
+use App\Models\WalletCycle;
 use Illuminate\Database\Eloquent\Model;
 
 class Wallet extends Model
@@ -19,5 +20,10 @@ class Wallet extends Model
     public function transactions()
     {
         return $this->hasMany(WalletTransaction::class);
+    }
+
+    public function cycle()
+    {
+        return $this->hasOne(WalletCycle::class);
     }
 }
