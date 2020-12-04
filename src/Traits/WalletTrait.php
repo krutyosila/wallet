@@ -32,6 +32,21 @@ trait WalletTrait
         return app(WalletService::class)->create($types);
     }
 
+    public function transaction($type, $intermediary, $amount, $meta = [])
+    {
+        if(!in_array($type, [WalletService::TYPE_BET, WalletService::TYPE_WIN])) {
+            return false;
+        }
+        $types = new WalletTransactionType();
+        $types->setType($type);
+        $types->setIntermediary($intermediary);
+        $types->setAmount($amount);
+        $types->setMeta($meta);
+        $types->setConfirmed(1);
+        $types->setWallet($this->wallet);
+        return app(WalletService::class)->create($types);
+    }
+
     public function confirm($transaction)
     {
         return app(WalletService::class)->confirm($transaction);

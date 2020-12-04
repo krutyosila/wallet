@@ -2,7 +2,6 @@
 
 namespace Krutyosila\Wallet\Models;
 
-use App\Models\WalletCycle;
 use Illuminate\Database\Eloquent\Model;
 
 class Wallet extends Model

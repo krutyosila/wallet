@@ -9,8 +9,8 @@ class WalletServiceProvider extends ServiceProvider
 
     public function boot()
     {
-        $this->loadTranslationsFrom(__DIR__.'/resources/lang', 'wallet');
 
+        $this->loadTranslationsFrom(__DIR__.'/resources/lang', 'wallet');
         $this->publishes([
             __DIR__ . '/config/wallet.php' => config_path('wallet.php'),
         ], 'wallet-config');

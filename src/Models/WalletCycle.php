@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace Krutyosila\Wallet\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
