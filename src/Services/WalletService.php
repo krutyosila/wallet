@@ -2,7 +2,7 @@
 
 namespace Krutyosila\Wallet\Services;
 
-use App\Models\WalletCycle;
+use Krutyosila\Wallet\Models\WalletCycle;
 use Krutyosila\Wallet\Models\WalletTransaction;
 use Krutyosila\Wallet\Types\WalletTransactionType;
 
