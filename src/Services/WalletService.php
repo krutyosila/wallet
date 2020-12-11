@@ -25,7 +25,7 @@ class WalletService
             $wallet->balance = $wallet->balance + $types->getAmount();
             $wallet->save();
         }
-        if (($types->getType() == self::TYPE_DEPOSIT OR $types->getType() == self::TYPE_WIN OR self::TYPE_BONUS) && $types->getConfirmed()) {
+        if (($types->getType() == self::TYPE_DEPOSIT OR $types->getType() == self::TYPE_WIN OR $types->getType() == self::TYPE_BONUS) && $types->getConfirmed()) {
             $wallet->balance = $wallet->balance + $types->getAmount();
             $wallet->save();
         }
