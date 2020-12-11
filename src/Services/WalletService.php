@@ -29,8 +29,10 @@ class WalletService
             $wallet->save();
         }
         $types->setTxn();
-        if(in_array($types->getType(), self::CYCLE_TYPES)) {
-            $this->updateCycle($wallet->cycle, $types->getAmount());
+        if($types->getConfirmed()) {
+            if (in_array($types->getType(), self::CYCLE_TYPES)) {
+                $this->updateCycle($wallet->cycle, $types->getAmount());
+            }
         }
         return $wallet->transactions()->create($types->getAll());
     }
@@ -44,6 +46,7 @@ class WalletService
         if ($transaction->type == self::TYPE_DEPOSIT) {
             $wallet->balance = $wallet->balance + $transaction->amount;
             $wallet->save();
+            $this->updateCycle($wallet->cycle, $transaction->amount);
         }
         $transaction->confirmed = true;
         $transaction->save();
