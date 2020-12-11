@@ -34,7 +34,7 @@ trait WalletTrait
 
     public function transaction($type, $intermediary, $amount, $meta = [])
     {
-        if(!in_array($type, [WalletService::TYPE_BET, WalletService::TYPE_WIN])) {
+        if(!in_array($type, [WalletService::TYPE_BET, WalletService::TYPE_WIN, WalletService::TYPE_BONUS])) {
             return false;
         }
         $types = new WalletTransactionType();

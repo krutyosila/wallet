@@ -12,7 +12,8 @@ class WalletService
     const TYPE_WITHDRAW = 'withdraw';
     const TYPE_BET = 'bet';
     const TYPE_WIN = 'win';
-    const CYCLE_TYPES = ['deposit', 'bet'];
+    const TYPE_BONUS = 'bonus';
+    const CYCLE_TYPES = ['deposit', 'bet', 'bonus'];
     public function create(WalletTransactionType $types)
     {
         $wallet = $types->getWallet();
@@ -24,7 +25,7 @@ class WalletService
             $wallet->balance = $wallet->balance + $types->getAmount();
             $wallet->save();
         }
-        if (($types->getType() == self::TYPE_DEPOSIT OR $types->getType() == self::TYPE_WIN) && $types->getConfirmed()) {
+        if (($types->getType() == self::TYPE_DEPOSIT OR $types->getType() == self::TYPE_WIN OR self::TYPE_BONUS) && $types->getConfirmed()) {
             $wallet->balance = $wallet->balance + $types->getAmount();
             $wallet->save();
         }

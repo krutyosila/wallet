@@ -17,7 +17,7 @@ class CreateWalletTransactionsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('wallet_id');
             $table->string('txn')->unique();
-            $table->enum('type', ['deposit', 'withdraw', 'bet', 'win'])->nullable();
+            $table->enum('type', ['deposit', 'withdraw', 'bet', 'win', 'bonus'])->nullable();
             $table->string('intermediary')->nullable();
             $table->decimal('amount', 8,2)->default(0);
             $table->boolean('confirmed')->default(1);
